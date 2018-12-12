@@ -8,8 +8,8 @@ export class UserProxyService {
     }
 
 
-    async getRequestById(requestId: number) {
-        return await fetch(`${BASE_URL}/vendor/requestById/${requestId}`, {
+    async getUserById(userId: number) {
+        return await fetch(`${BASE_URL}/${userId}`, {
             method: "get",
             headers: { "content-Type": "application/json" }
         });

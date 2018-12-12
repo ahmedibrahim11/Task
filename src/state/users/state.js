@@ -1,7 +1,11 @@
 export interface UserState {
-    users: any
+    users: any,
+    loadedUsers: any,
+    currentUser: any
 }
 
 export const UserInitialState: UserState = {
-    users: []
+    users: [],
+    loadedUsers: [],
+    currentUser: {}
 };
