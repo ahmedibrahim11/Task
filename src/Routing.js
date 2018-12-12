@@ -6,7 +6,8 @@ import { Dispatch, bindActionCreators } from 'redux';
 
 import { State } from './state';
 
-import { Home } from './modules/screens/home'
+import { Home } from './modules/screens/home';
+import UsersScreen from './modules/screens/user-screen'
 
 class RoutingContainer extends Component {
 
@@ -26,7 +27,7 @@ class RoutingContainer extends Component {
     render() {
         return (
             <Switch>
-                <Route path='/index' component={Home} />
+                <Route path='/index' component={UsersScreen} />
             </Switch>
         )
     }

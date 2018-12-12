@@ -9,6 +9,8 @@ import './App.css';
 import { Application } from "./application";
 import { Routing } from "./Routing";
 
+import { Header } from './modules/shared'
+
 
 class App extends Component {
   constructor() {
@@ -29,6 +31,9 @@ class App extends Component {
       <div>
         <Router>
           <div className="app">
+            <div>
+              <Header />
+            </div>
             <Provider store={Application.current.store} >
               <Routing />
             </Provider>
