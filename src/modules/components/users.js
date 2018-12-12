@@ -3,7 +3,7 @@ import * as _ from "lodash";
 
 import { withRouter, Route, Switch } from "react-router-dom";
 
-import UsersDetailsScreen from "../screens/user-details-screen"
+import UsersDetailsScreen from "../screens/user-details-screen";
 
 class Users extends React.Component {
     props: {
@@ -28,7 +28,7 @@ class Users extends React.Component {
                                         this.props.GetUserById(Number(user.id))
                                     }} key={index}>{user.login}</li>))}
                             </div>
-                            <button onClick={this.props.loadMoreUsers} >Add More...</button>
+                            <button className="btn btn-primary" onClick={this.props.loadMoreUsers} >Add More...</button>
                         </div>
                     </div>
 

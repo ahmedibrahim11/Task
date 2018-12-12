@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-
-
-export class HomeScreen extends Component {
+export class AboutScreen extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome</h1>
+                <h1>About Us</h1>
             </div>
 
         );
