@@ -17,7 +17,7 @@ export function userReducer(
         case types.LOAD_MORE_USERS: {
             var len = state.users.length - state.loadedUsers.length;
             debugger;
-            let _loadedusers = state.loadedUsers.concat(_.slice(state.users, len, len + 3));
+            let _loadedusers = state.loadedUsers.concat(_.slice(state.users, state.loadedUsers.length, state.loadedUsers.length + 3));
             return {
                 ...state,
                 loadedUsers: _loadedusers
