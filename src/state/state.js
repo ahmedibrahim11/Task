@@ -1,5 +1,7 @@
-import { UserState } from "./users/state"
+import { UserState } from "./users/state";
+import { UiState } from './ui/state';
 
 export type State = {
-    users: UserState
+    users: UserState,
+    ui: UiState
 };

@@ -6,18 +6,23 @@ import { State } from '../../state';
 
 import { GetUserById } from "../../state/users/action-creator";
 
-import UserDetails from "../components/user-details"
+import Loader from '../shared/loader';
+import UserDetails from "../components/user-details";
 
 class UsersDetailsContainer extends Component {
     props: {
         currentUser: any,
-        GetUserById: (userId: Number) => void
+        GetUserById: (userId: Number) => void,
+        loading: boolean
+
     };
 
 
     static mapStateToProps(state: State) {
         return {
-            currentUser: state.users.currentUser
+            currentUser: state.users.currentUser,
+            loading: state.ui.loading
+
         };
     }
 
@@ -29,7 +34,11 @@ class UsersDetailsContainer extends Component {
     }
     render() {
         return (
-            <UserDetails currentUser={this.props.currentUser} />
+            <div>
+                <UserDetails currentUser={this.props.currentUser} />
+                <Loader modalVisible={this.props.loading} />
+
+            </div>
         );
     }
 

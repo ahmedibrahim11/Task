@@ -1,5 +1,8 @@
 import * as types from "./actions";
 
+import * as UiTypes from "../ui/actions";
+
+
 import { userProxyService } from "../../proxy";
 
 
@@ -21,7 +24,7 @@ export function loadUsers(): LOAD_USERs_ACTION {
     debugger;
     return async (dispatch, getState) => {
         // const state = getState();
-        //  dispatch({ type: UiTypes.UI_LOADING });
+        dispatch({ type: UiTypes.UI_LOADING });
         debugger;
         let response = await userProxyService.getUsers();
         debugger;
@@ -29,9 +32,10 @@ export function loadUsers(): LOAD_USERs_ACTION {
         users = await response.json();
         debugger;
         if (response.status === 200) {
-            //   dispatch({ type: UiTypes.UI_LOADING });
+            dispatch({ type: UiTypes.UI_LOADING });
             dispatch({ type: types.LOAD_USERS, payload: users });
         } else {
+            dispatch({ type: UiTypes.UI_LOADING });
         }
     };
 }
@@ -61,6 +65,7 @@ export function GetUserById(userId: number): GET_REQUEST_BY_IB_ACTION {
     debugger;
     return async (dispatch, getState) => {
         debugger;
+        dispatch({ type: UiTypes.UI_LOADING });
 
         let response = await userProxyService.getUserById(userId);
         debugger;
@@ -70,7 +75,10 @@ export function GetUserById(userId: number): GET_REQUEST_BY_IB_ACTION {
         if (response.status === 200) {
             debugger;
             dispatch({ type: types.GET_USER_BY_IB, payload: user });
+            dispatch({ type: UiTypes.UI_LOADING });
+
         } else {
+            dispatch({ type: UiTypes.UI_LOADING });
         }
     };
 }

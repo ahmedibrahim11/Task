@@ -4,27 +4,30 @@ import { connect } from "react-redux";
 
 import { State } from '../../state';
 
-import { loadUsers, GetUserById ,loadMoreUsers} from "../../state/users/action-creator";
+import { loadUsers, GetUserById, loadMoreUsers } from "../../state/users/action-creator";
+import Loader from '../shared/loader';
+import Users from "../components/users";
 
-import Users from "../components/users"
 
 class UsersContainer extends Component {
     props: {
         allUsers: any,
         loadUsers: () => void,
         GetUserById: (userId: Number) => void,
+        loading: boolean
     };
 
 
     static mapStateToProps(state: State) {
         return {
-            allUsers: state.users.loadedUsers
+            allUsers: state.users.loadedUsers,
+            loading: state.ui.loading
         };
     }
 
     static mapDispatchToProps(dispatch: Dispatch) {
         return bindActionCreators(
-            { loadUsers, GetUserById,loadMoreUsers },
+            { loadUsers, GetUserById, loadMoreUsers },
             dispatch
         );
     }
@@ -36,7 +39,10 @@ class UsersContainer extends Component {
     render() {
         console.log(this.props.allUsers)
         return (
-            <Users allUsers={this.props.allUsers} GetUserById={this.props.GetUserById} loadMoreUsers={this.props.loadMoreUsers} />
+            <div>
+                <Users allUsers={this.props.allUsers} GetUserById={this.props.GetUserById} loadMoreUsers={this.props.loadMoreUsers} />
+                <Loader modalVisible={this.props.loading} />
+            </div>
         );
     }
 
