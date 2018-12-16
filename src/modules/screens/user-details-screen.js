@@ -27,16 +27,6 @@ class UsersDetailsContainer extends Component {
             dispatch
         );
     }
-
-    componentWillMount() {
-        const { userId } = this.props.match.params;
-        this.props.GetUserById(Number(userId));
-        console.log(this.props.currentUser.name);
-    }
-    componentDidMount() {
-
-        console.log(this.props.currentUser.name);
-    }
     render() {
         return (
             <UserDetails currentUser={this.props.currentUser} />

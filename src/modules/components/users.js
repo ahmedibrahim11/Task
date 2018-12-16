@@ -15,7 +15,12 @@ class Users extends React.Component {
         return (
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-3 px-1">
+                    <div class="col-sm-3 px-1" style={{
+                        border: 'gray', color: 'white',
+                        textDecoration: 'underline',
+                        fontSize: 'larger',
+                        background: 'lightsteelblue'
+                    }}>
                         <div class="py-2 sticky-top flex-grow-1">
                             <div class="nav flex-sm-column">
                                 {_.map(userrlist, (user, index) => (
