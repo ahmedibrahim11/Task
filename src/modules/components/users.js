@@ -19,7 +19,10 @@ class Users extends React.Component {
                         border: 'gray', color: 'white',
                         textDecoration: 'underline',
                         fontSize: 'larger',
-                        background: 'lightsteelblue'
+                        background: 'lightsteelblue',
+                        minHeight: '33rem',
+                        maxHeight: '33rem',
+                        overflowY: 'scroll'
                     }}>
                         <div class="py-2 sticky-top flex-grow-1">
                             <div class="nav flex-sm-column">
